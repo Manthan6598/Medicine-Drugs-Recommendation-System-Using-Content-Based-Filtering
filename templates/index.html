@@ -1,0 +1,84 @@
+<head>
+  <title>Medicine Drugs Recommender System</title>
+  <style>
+    
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-left: 350px;
+      border: 2px solid black;
+    }
+    th, td {
+        text-align: left;
+        padding: 4px;
+        border: 2px solid black;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+        border: 2px solid black;
+        
+      }
+    body {
+        background-color: #008080;
+        
+         }
+    form{
+      border: 2px solid white;
+      border-radius: 4px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      border-style: double;
+    }
+  </style>
+</head>
+<body>
+
+  <h3 style="text-align: center;color: white;text-transform: uppercase; font-size:20px;">Medicine Drugs Recommender System</h3>
+  <form>
+    <b><label for="condition" style="margin-left: 300px;color: white;">Enter a medical condition:</label></b>
+    <select name="condition" id="condition">
+      {% for condition in conditions %}
+        <option value="{{ condition }}">{{ condition }}</option>
+        {% endfor %}
+    </select>
+    <button id="submit" type="submit" style="background-color: #008080;color: white;border: 4px solid white;border-style: double;height:30px;"><b>Recommend</b></button>
+  </form>
+  <br>
+  <h4 id="selected-condition" style="margin-left: 400px; color: white;"></h4>
+    <table id="results" style="display:none">
+      <thead>
+        <tr>
+          <th style="color: white;"><b>Drug</b></th>
+          <th style="color: white;"><b>Recommendation Score</b></th>
+          <th style="color: white;"><b>Average Rating</b></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      
+      $('form').submit(function(event) {
+        event.preventDefault();
+        var condition = $('#condition').val();
+        $('#selected-condition').text('Top Drug Recommendations in Medicines for ' + condition + ' are as follows:');
+        $.post('/recommend', {'condition': condition}, function(data) {
+          var html = '';
+          $.each(data, function(index, drug) {
+            html += '<tr style="color: black;">';
+            html += '<td><b>' + drug.drug + '</b></td>';
+            html += '<td><b>' + drug.score.toFixed(2) + '</b></td>';
+            html += '<td><b>' + drug.rating.toFixed(2) + '</b></td>';
+            html += '</tr>';
+          });
+          $('#results tbody').html(html);
+          $('#results').show();
+        });
+      });
+    </script>
+</body>
+</html>
+
+
