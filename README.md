@@ -13,3 +13,7 @@ Python scripts are used in the system's code for data preprocessing, model train
 
 
 Demo Link: http://jmanthan56.pythonanywhere.com/
+
+Screenshots :
+![image](https://github.com/Manthan6598/Medicine-Drugs-Recommendation-System-Using-Content-Based-Filtering/assets/101986611/85af66cf-0969-430b-beb7-81a320ce218f)
+
