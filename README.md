@@ -15,5 +15,10 @@ Python scripts are used in the system's code for data preprocessing, model train
 Demo Link: http://jmanthan56.pythonanywhere.com/
 
 Screenshots :
+Screen-1:
+![image](https://github.com/Manthan6598/Medicine-Drugs-Recommendation-System-Using-Content-Based-Filtering/assets/101986611/93a5904e-89e9-4bbb-9e0b-f68d44c96578)
+Screen-2:
+![image](https://github.com/Manthan6598/Medicine-Drugs-Recommendation-System-Using-Content-Based-Filtering/assets/101986611/8bf0b727-9342-4c54-a309-8b970acbf5bf)
+Screen-3:
 ![image](https://github.com/Manthan6598/Medicine-Drugs-Recommendation-System-Using-Content-Based-Filtering/assets/101986611/85af66cf-0969-430b-beb7-81a320ce218f)
 
